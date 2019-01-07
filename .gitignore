@@ -1,0 +1,8 @@
+*.bin
+*.lock
+*.ser
+*.xml
+*.properties
+*.gradle
+*.idea
+*.iml

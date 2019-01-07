@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Fri Nov 30 13:02:46 EST 2018
+1.base=C\:\\Users\\Purpl\\Desktop\\group_0645\\Phase2\\GameCentre\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=classes.dex
+0.set=DEX
+0.base=C\:\\Users\\Purpl\\Desktop\\group_0645\\Phase2\\GameCentre\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+1.path=classes.dex
