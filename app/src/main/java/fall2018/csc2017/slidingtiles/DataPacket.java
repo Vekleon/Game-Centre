@@ -44,6 +44,9 @@ public class DataPacket implements Serializable {
 
     /**
      * Update the saveState associated with game, or create a new one if it doesn't exist
+     **/
+    /**
+     * Update the saveState associated with game, or create a new one if it doesn't exist
      * @param game the current game
      * @param gameState The state of the current game
      * @return the serialized datapacket

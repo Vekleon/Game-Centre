@@ -22,7 +22,6 @@ import fall2018.csc2017.slidingtiles.GameCentre;
  */
 public class FileWriter {
     private static final String GLOBAL_USER_INFORMATION = "ALL_USERS.ser";
-
     /**
      * Constructor of the FileWriter class
      */
@@ -63,11 +62,10 @@ public class FileWriter {
             output = ctx.openFileOutput(GLOBAL_USER_INFORMATION, Context.MODE_PRIVATE);
 
             ObjectOutputStream outputStream = new ObjectOutputStream(output);
-            outputStream.writeObject(GameCentre.getAllUserData());
+            outputStream.writeObject(GameCentre.allUserData);
             outputStream.close();
         } catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
-
 }

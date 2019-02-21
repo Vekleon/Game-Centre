@@ -12,8 +12,7 @@ import fall2018.csc2017.slidingtiles.twentyfourtyeight.TwentyFourtyEightBoard;
 public class TwentyFourtyEightGameState extends GameState implements Stack<TwentyFourtyEightBoard>{
     
     ArrayList<TwentyFourtyEightBoard> moves;
-    private int score;
-
+    
     /**
      * Initialises the slidingBoard for 2048
      *
@@ -51,23 +50,6 @@ public class TwentyFourtyEightGameState extends GameState implements Stack<Twent
         return false;
     }
 
-
-    /**
-     * Sets the current score of the game into the game state
-     * @param score the score of the game at the given save point.
-     */
-    public void setScore(int score){
-        this.score = score;
-    }
-
-    /**
-     * Get the score of the current save state
-     */
-    public int getScore(){
-        return score;
-    }
-
-
     /**
      * Getter for the stack of moves.
      *
@@ -92,7 +74,6 @@ public class TwentyFourtyEightGameState extends GameState implements Stack<Twent
      * @return the most recently pushed move.
      */
     public TwentyFourtyEightBoard pop() {
-        Log.d("Undoing", "popping");
         return moves.remove(moves.size() - 1);
     }
 

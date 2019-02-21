@@ -81,6 +81,15 @@ class BoardManager extends GameManager implements Serializable {
     }
 
     /**
+     * Autosaves every given n seconds
+     *
+     * @param seconds time elapsed before an autosave
+     */
+    void autoSave(int seconds) {
+        gameState.changeState(board, seconds);
+    }
+
+    /**
      * Return whether the tiles are in row-major order.
      *
      * @return whether the tiles are in row-major order
@@ -137,7 +146,7 @@ class BoardManager extends GameManager implements Serializable {
     }
 
     /**
-     * Undo counnt times
+     * Undo count times
      *
      * @param undoCount how many steps to undo
      */
@@ -211,5 +220,14 @@ class BoardManager extends GameManager implements Serializable {
     public SlidingTilesGameState getGameState() {
         return gameState;
     }
+
+    /***
+     * Returns the id of the blank tile
+     * @return id of blank tile
+     */
+    public int getBlankId() {
+        return blankId;
+    }
+
 
 }

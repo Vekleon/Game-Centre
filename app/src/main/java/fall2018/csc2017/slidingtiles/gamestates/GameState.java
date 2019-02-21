@@ -11,7 +11,7 @@ import fall2018.csc2017.slidingtiles.Board;
  * @version 1.0
  * @since 2018-10-30
  */
-public abstract class GameState implements Serializable {
+public class GameState implements Serializable {
     private Board board;
     private int seconds;
 

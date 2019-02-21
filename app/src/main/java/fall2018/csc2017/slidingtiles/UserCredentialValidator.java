@@ -40,7 +40,7 @@ public class UserCredentialValidator {
      * Returns whether username is empty.
      * @return True if empty, false otherwise
      */
-    public boolean isUsernameEmpty() {
+    private boolean isUsernameEmpty() {
         return username.isEmpty();
     }
 
@@ -48,7 +48,7 @@ public class UserCredentialValidator {
      * Returns whether username is composed of only of letters and numbers.
      * @return True if username composed of only letters and numbers, false otherwise.
      */
-    public boolean isUsernameComposedValidCharacters() {
+    private boolean isUsernameComposedValidCharacters() {
         // Check if username is composed only of letters and numbers
         Pattern validUsernamePattern = Pattern.compile("[a-zA-Z0-9]+");
         Matcher userNameMatcher = validUsernamePattern.matcher(username);
@@ -73,7 +73,6 @@ public class UserCredentialValidator {
      */
     public void setUsernameAndPasswordValidityErrors(EditText etUsername, EditText etPassword) {
         if (!this.isValidUsername() && this.isValidPassword()) {
-            //TODO make helper
             if (this.isUsernameEmpty()) {
                 etUsername.setError("Error: Username field cannot be empty");
                 etUsername.requestFocus();

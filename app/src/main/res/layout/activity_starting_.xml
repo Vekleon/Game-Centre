@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gamecentrebackground"
+    tools:context="fall2018.csc2017.slidingtiles.StartingActivity">
+
+    <TextView
+        android:id="@+id/GameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:text="Welcome To Sliding Tiles \n A Puzzle Game where you must arrange the tiles in the correct order"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <Button
+        android:id="@+id/StartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GameText"
+        android:layout_centerHorizontal="true"
+        android:text="New Game" />
+
+    <Button
+        android:id="@+id/LoadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GameText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_toStartOf="@+id/StartButton"
+        android:text="Load Game"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GameText"
+        android:layout_toEndOf="@+id/StartButton"
+        android:text="Save Game" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:layout_alignTop="@+id/radioGroupImageSelect"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="160dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/lion_main" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView1"
+        android:layout_alignBottom="@+id/radioGroupImageSelect"
+        android:layout_marginStart="-7dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/kobe_main" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="72dp"
+        android:layout_height="84dp"
+        android:layout_alignTop="@+id/radioGroupImageSelect"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="160dp"
+        app:srcCompat="@drawable/numbers" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupImageSelect"
+        android:layout_width="141dp"
+        android:layout_height="227dp"
+        android:layout_below="@+id/uploadButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="-9dp"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonImage1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/radioGroupImageSelect"
+            android:layout_alignTop="@+id/radioGroupImageSelect"
+            android:layout_weight="1"
+            android:text="Lion"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonImage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Kobe Bryant"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/radioGroupImageSelect"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Numbers"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCustom"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Custom"
+            android:textSize="20dp" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupComplexitySelect"
+        android:layout_width="261dp"
+        android:layout_height="62dp"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonComplexity1"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3x3"
+            android:textSize="30dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonComplexity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+
+            android:text="4x4"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonComplexity3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5x5"
+            android:textSize="30dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroupComplexitySelect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="65dp"
+        android:text="Custom Image" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StartButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="Difficulty"
+        android:textSize="24dp" />
+
+    <ImageView
+        android:id="@+id/imageViewCustom"
+        android:layout_width="96dp"
+        android:layout_height="114dp"
+        android:layout_alignBottom="@+id/radioGroupImageSelect"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        app:srcCompat="@drawable/no_image" />
+
+</RelativeLayout>

@@ -16,7 +16,6 @@ import fall2018.csc2017.slidingtiles.SlidingBoard;
  * @since 2018-11-04
  */
 public class SlidingTilesGameState extends GameState implements Stack<Integer> {
-
     /**
      * List of moves of the blank tile that brought us to the current state
      */
@@ -25,7 +24,7 @@ public class SlidingTilesGameState extends GameState implements Stack<Integer> {
     /**
      * List of proxy bitmap version of the bitmapDrawables used for the game
      */
-    private ArrayList<ProxyBitmap> proxyBitmaps = new ArrayList<>();
+    ArrayList<ProxyBitmap> proxyBitmaps = new ArrayList<>();
 
     /**
      * Initialises the stack of moves and prints the time to standard output.

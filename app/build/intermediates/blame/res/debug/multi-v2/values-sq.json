@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Purpl\\Desktop\\group_0645\\Phase2\\GameCentre\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sq\\values-sq.xml",
+            "outputFile": "C:\\Users\\Thomas\\Desktop\\GameCentre\\GameCentre\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sq\\values-sq.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Purpl\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\871bee52d261d62044964cb4f5ee9b82\\res\\values-sq\\values.xml",
+                    "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\ff19ddf19d07ce43fe02ddd6633b1b76\\res\\values-sq\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Purpl\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\37380a976d2ee0e3aed923a886b0b192\\res\\values-sq\\values-sq.xml",
+                    "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\ad3b2ed8a69facf7f3c1f688892c320c\\res\\values-sq\\values-sq.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Purpl\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\69f6233485ae37e3b7774ed8b8a25a56\\res\\values-sq\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "187",
-                        "endOffsets": "472"
-                    },
-                    "to": {
-                        "startLines": "26",
-                        "startColumns": "4",
-                        "startOffsets": "2944",
-                        "endColumns": "187",
-                        "endOffsets": "3127"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Purpl\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\424498913793371adae5d85a6339bb3b\\res\\values-sq\\values-sq.xml",
+                    "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\e8769fea3b5fe13f94a0a53d9b4a869e\\res\\values-sq\\values-sq.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -69,6 +52,23 @@
                         "startOffsets": "105,219,319,431,518,628,751,832,911,994,1100,1205,1303,1409,1512,1628,1782,4562",
                         "endColumns": "113,99,111,86,109,122,80,78,82,105,104,97,105,102,115,153,98,80",
                         "endOffsets": "214,314,426,513,623,746,827,906,989,1095,1200,1298,1404,1507,1623,1777,1876,4638"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\774f4f3081c60e503c2fc0acd45176b2\\res\\values-sq\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "187",
+                        "endOffsets": "472"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "2944",
+                        "endColumns": "187",
+                        "endOffsets": "3127"
                     }
                 }
             ]

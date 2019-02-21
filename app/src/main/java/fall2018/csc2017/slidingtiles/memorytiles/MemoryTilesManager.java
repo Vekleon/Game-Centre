@@ -6,6 +6,7 @@ import java.util.List;
 
 import fall2018.csc2017.slidingtiles.GameManager;
 import fall2018.csc2017.slidingtiles.Tile;
+import fall2018.csc2017.slidingtiles.gamestates.GameState;
 import fall2018.csc2017.slidingtiles.gamestates.MemoryTileGameState;
 
 public class MemoryTilesManager extends GameManager {
@@ -14,10 +15,23 @@ public class MemoryTilesManager extends GameManager {
      * Variable that holds the tile another tile is to match
      */
     private MemoryTile tileToMatchTo = null;
+
+    private MemoryTile otherTile = null;
+
     /**
      * The current score
      */
     private int score = 0;
+
+    /**
+     * Manage a Memory Tile board that has been pre-populated
+     *
+     * @param gameState the state to load from
+     */
+    public MemoryTilesManager(GameState gameState) {
+        this.board = gameState.getBoard();
+        setGameState(gameState);
+    }
 
     /**
      * Generate and populate a memory tile board
@@ -50,6 +64,9 @@ public class MemoryTilesManager extends GameManager {
      * Return true iff the tapped tile is blank
      **/
     public boolean isValidTap(int move) {
+        if(otherTile != null){
+            reset();
+        }
         int[] pos = getPosition(move);
         return !((MemoryTile) board.getTile(pos[0], pos[1])).isFlipped();
     }
@@ -60,7 +77,7 @@ public class MemoryTilesManager extends GameManager {
      * @param move the integer representation of a move
      * @return the move split into x and y co-ords
      */
-    private int[] getPosition(int move) {
+    public int[] getPosition(int move) {
         int[] result = new int[2];
         result[0] = move / board.getComplexity();
         result[1] = move % board.getComplexity();
@@ -68,40 +85,35 @@ public class MemoryTilesManager extends GameManager {
     }
 
     /**
-     * Checks to see if the current tap leads to a valid move and executes if so.
      * @param move - the move to be made
      * @param undo whether or not we are undoing the move
      */
     public void touchMove(int move, boolean undo) {
-        if (isValidTap(move)) {
-            int[] pos = getPosition(move);
-            MemoryTile touchedTile = (MemoryTile) board.getTile(pos[0], pos[1]);
-            touchedTile.flip();
-            tileAction(touchedTile);
-            ((MemoryTileBoard) board).updateNumFlipped();
-            setChanged();
-            notifyObservers();
-        }
-    }
-
-    /**
-     * Checks to see if there is already a flipped tile and then applies the appropriate actions
-     * @param touchedTile the tile that was tapped on
-     */
-    private void tileAction(MemoryTile touchedTile){
+        int[] pos = getPosition(move);
+        MemoryTile touchedTile = (MemoryTile) board.getTile(pos[0], pos[1]);
+        touchedTile.flip();
         if (tileToMatchTo != null) {
             if (tilesMatch(touchedTile, tileToMatchTo)) {
                 this.addScore(200);
+                tileToMatchTo = null;
             } else {
                 this.addScore(-20);
-                touchedTile.flip();
-                tileToMatchTo.flip();
+                otherTile = touchedTile;
             }
-            tileToMatchTo = null;
 
         } else {
             tileToMatchTo = touchedTile;
         }
+        ((MemoryTileBoard) board).updateNumFlipped();
+        setChanged();
+        notifyObservers();
+    }
+
+    private void reset(){
+        otherTile.flip();
+        tileToMatchTo.flip();
+        otherTile = null;
+        tileToMatchTo = null;
     }
 
     /**
@@ -109,9 +121,9 @@ public class MemoryTilesManager extends GameManager {
      *
      * @param tile1 first tile
      * @param tile2 second tile
-     * @return whether the tiles match or not
+     * @return whether the two tiles have the same background
      */
-    private boolean tilesMatch(Tile tile1, Tile tile2) {
+    public boolean tilesMatch(Tile tile1, Tile tile2) {
         return tile1.getBackgroundId() == tile2.getBackgroundId();
     }
 
@@ -120,7 +132,7 @@ public class MemoryTilesManager extends GameManager {
      *
      * @param score the amount the score is to be increased
      */
-    private void addScore(int score) {
+    public void addScore(int score) {
         this.score += score;
     }
 

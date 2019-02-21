@@ -4,6 +4,7 @@ import android.content.res.TypedArray;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -61,6 +62,10 @@ public class MemoryTilesGameScreen extends GameScreen {
         initGridView(R.id.memory_tiles_grid);
 
         startTimer(R.id.timeCounterMemoryTiles);
+
+        //MemoryTilesManager mtm = new MemoryTilesManager();
+        //int i = mtm.getScore();
+        //boolean f = mtm.gameOver();
     }
 
     @Override
@@ -73,6 +78,22 @@ public class MemoryTilesGameScreen extends GameScreen {
             return gc.getBitmapFromId(tile.getBackgroundId());
         else
             return blankBitmap;
+    }
+
+
+    /**
+     * Load the board from the user saves file
+     */
+    private void loadFromFile(){
+        GameCentre gameCentre = GameCentre.getGameCentre();
+        MemoryTileGameState userState = (MemoryTileGameState)gameCentre.getCurrUserSavedGame(getGameTitle());
+        if(userState == null){
+            TypedArray tileImages = getResources().obtainTypedArray(R.array.memory_tile_tiles);
+            GameCentre.getGameCentre().setIdToBitmapArray(createTileList(tileImages, 10));
+            gameManager = new MemoryTilesManager(complexity);
+        }
+        else
+           gameManager = new MemoryTilesManager(gameCentre.getCurrUserSavedGame(getGameTitle()));
     }
 
     /**

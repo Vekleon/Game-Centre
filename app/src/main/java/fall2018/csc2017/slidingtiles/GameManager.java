@@ -14,6 +14,11 @@ public abstract class GameManager extends Observable implements java.io.Serializ
      **/
     protected GameState gameState;
 
+    /**
+     * The save index under game-center loaded games
+     **/
+    private int saveId;
+
     protected Board board;
 
     /**
@@ -23,7 +28,7 @@ public abstract class GameManager extends Observable implements java.io.Serializ
 
     }
 
-    protected void setGameState(GameState state){
+    public void setGameState(GameState state){
         this.gameState = state;
     }
 
@@ -32,6 +37,13 @@ public abstract class GameManager extends Observable implements java.io.Serializ
      **/
     public GameState getGameState() {
         return this.gameState;
+    }
+
+    /**
+     * Return the game's saveId
+     **/
+    public int getSaveId() {
+        return this.saveId;
     }
 
     /**

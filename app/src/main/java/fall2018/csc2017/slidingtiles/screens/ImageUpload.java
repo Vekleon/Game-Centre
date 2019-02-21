@@ -1,12 +1,16 @@
 package fall2018.csc2017.slidingtiles.screens;
 
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
 
 import android.graphics.Bitmap;
 
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -30,6 +34,7 @@ import fall2018.csc2017.slidingtiles.StartingActivity;
  * @since 2018-11-04
  */
 public class ImageUpload extends Screen {
+    private int reqCode = 1;
     private ImageView imageView;
 
     @Override
@@ -70,7 +75,7 @@ public class ImageUpload extends Screen {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, reqCode);
     }
 
     /**

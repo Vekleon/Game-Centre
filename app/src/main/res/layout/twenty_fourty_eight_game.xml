@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCCCCC">
+
+    <Button
+        android:id="@+id/twenty_fourty_eight_undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="18dp"
+        android:background="@color/colorAccent"
+        android:text="Undo"
+        android:textColor="#FFFFFF" />
+
+    <fall2018.csc2017.slidingtiles.controller.SwipeDetectGridView
+        android:id="@+id/twenty_fourty_eight_grid"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        tools:context="fall2018.csc2017.slidingtiles.twentyfourtyeight.screens.
+        TwentyFourtyEightGameScreen" />
+
+    <TextView
+        android:id="@+id/twenty_fourty_eight_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/twenty_fourty_eight_grid"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:text="0"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/twenty_fourty_eight_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorAccent"
+        android:text="New Game"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/twenty_fourty_eight_grid"
+        android:layout_marginEnd="-48dp"
+        android:layout_toStartOf="@+id/twenty_fourty_eight_score"
+        android:text="Score" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/twenty_fourty_eight_grid"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="120dp"
+        android:text="Time" />
+
+    <TextView
+        android:id="@+id/twenty_fourty_eight_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/twenty_fourty_eight_grid"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="165dp"
+        android:text="0:00"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="258dp"
+        android:layout_height="110dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="2048"
+        android:textSize="88sp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentStart="true"
+        android:text="Swipe the screen to move the tiles. Try to get 2048 as fast as you can!" />
+
+</RelativeLayout>

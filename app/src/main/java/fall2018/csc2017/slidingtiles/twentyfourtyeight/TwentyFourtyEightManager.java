@@ -19,7 +19,7 @@ public class TwentyFourtyEightManager extends GameManager {
     /**
      * The current score
      **/
-    private int score;
+    private int score = 0;
 
     /**
      * Whether or not 2048 is on the twentyFourtyEightBoard
@@ -34,7 +34,6 @@ public class TwentyFourtyEightManager extends GameManager {
     public TwentyFourtyEightManager(GameState gameState){
         this.board = gameState.getBoard();
         setGameState(gameState);
-        this.score = ((TwentyFourtyEightGameState) gameState).getScore();
     }
 
     /**
@@ -56,7 +55,6 @@ public class TwentyFourtyEightManager extends GameManager {
         Collections.shuffle(tiles);
         this.board = new TwentyFourtyEightBoard(tiles, complexity);
         setGameState(new TwentyFourtyEightGameState((TwentyFourtyEightBoard) board, 0));
-        this.score = 0;
     }
 
     /**
@@ -102,7 +100,7 @@ public class TwentyFourtyEightManager extends GameManager {
      * @param move - the move to be made
      */
     public void touchMove(int move, boolean undo) {
-        ((TwentyFourtyEightGameState) gameState).push(((TwentyFourtyEightBoard) board).clone());
+        ((TwentyFourtyEightGameState) gameState).push((TwentyFourtyEightBoard) board);
         makeRotation(move);
         makeMove();
         makeRotation(4 - move);
@@ -189,7 +187,6 @@ public class TwentyFourtyEightManager extends GameManager {
                     oldLine = ((TwentyFourtyEightBoard)board).moveLine(oldLine);
 
                     addScore(num*2);
-                    ((TwentyFourtyEightGameState) gameState).setScore(score);
                 }
                 num += 1;
                 //Target is 11 since 2^11 = 2048

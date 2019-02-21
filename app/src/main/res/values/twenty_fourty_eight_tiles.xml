@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="twenty_fourty_eight_tiles">
+        <item>@drawable/tfe_blank</item>
+        <item>@drawable/tfe_2</item>
+        <item>@drawable/tfe_4</item>
+        <item>@drawable/tfe_8</item>
+        <item>@drawable/tfe_16</item>
+        <item>@drawable/tfe_32</item>
+        <item>@drawable/tfe_64</item>
+        <item>@drawable/tfe_128</item>
+        <item>@drawable/tfe_256</item>
+        <item>@drawable/tfe_512</item>
+        <item>@drawable/tfe_1024</item>
+        <item>@drawable/tfe_2048</item>
+    </array>
+</resources>

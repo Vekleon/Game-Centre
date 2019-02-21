@@ -10,6 +10,8 @@ import fall2018.csc2017.slidingtiles.CustomAdapter;
 import fall2018.csc2017.slidingtiles.GameCentre;
 import fall2018.csc2017.slidingtiles.GameScreen;
 import fall2018.csc2017.slidingtiles.R;
+import fall2018.csc2017.slidingtiles.controller.SwipeDetectGridView;
+import fall2018.csc2017.slidingtiles.controller.SwipeMovementController;
 import fall2018.csc2017.slidingtiles.gamestates.TwentyFourtyEightGameState;
 import fall2018.csc2017.slidingtiles.twentyfourtyeight.TwentyFourtyEightManager;
 
@@ -74,7 +76,6 @@ public class TwentyFourtyEightGameScreen extends GameScreen {
         GameCentre.getGameCentre().setIdToBitmapArray(createTileList(tileImages, 12));
         gameManager = new TwentyFourtyEightManager(4);
         gameManager.getBoard().addObserver(this);
-
     }
 
     /**

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gamecentrebackground">
+
+    <Button
+        android:id="@+id/memory_tiles_start"
+        android:layout_width="148dp"
+        android:layout_height="107dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:background="@drawable/buttonbackground"
+        android:text="Start Game" />
+
+    <SeekBar
+        android:id="@+id/seekBarDifficulty"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/memory_tiles_start"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="54dp"
+        android:max="3"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/textViewDifficulty"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seekBarDifficulty"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:text="TextView"
+        tools:text="Difficulty: 4x4" />
+
+    <TextView
+        android:id="@+id/textViewMemoryTilesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="MEMORY TILES"
+        android:textSize="40dp" />
+
+
+</RelativeLayout>

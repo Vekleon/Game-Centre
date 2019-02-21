@@ -3,6 +3,7 @@ package fall2018.csc2017.slidingtiles;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -38,7 +39,7 @@ public class GameCentre {
     /**
      * Maps every user to their associated datapacket
      **/
-    private static HashMap<String, DataPacket> allUserData = new HashMap<>();
+    public static HashMap<String, DataPacket> allUserData = new HashMap<>();
 
     /**
      * Stored bitmap
@@ -48,7 +49,7 @@ public class GameCentre {
     /**
      * Default init
      */
-    private GameCentre() {
+    GameCentre() {
 
     }
 
@@ -78,8 +79,15 @@ public class GameCentre {
     /**
      * Return the current users saved gamestate associated with game, will return null if there is no game
      **/
-    GameState getCurrUserSavedGame(String game) {
+    public GameState getCurrUserSavedGame(String game) {
         return this.currUserSavedGames.get(game);
+    }
+
+    /**
+     * Return the current users score list, will return null if there are no current scores
+     **/
+    public ArrayList<ScoreboardEntry> getCurrUserSavedScores() {
+        return currUserSavedScores;
     }
 
     /**
@@ -135,25 +143,18 @@ public class GameCentre {
     }
 
     /**
-     * @return all user data
-     */
-    public static HashMap<String, DataPacket> getAllUserData(){
-        return allUserData;
-    }
-
-    /**
      * getter for bitmap
      *
      * @return curr bitmap
      */
-    Bitmap getCustomImageBitmap() {
+    public Bitmap getCustomImageBitmap() {
         return bitmap;
     }
 
     /**
      * Add a saved score to a users userdata
      **/
-    void addSavedScoreToData(String username, ScoreboardEntry scoreboardEntry) {
+    public void addSavedScoreToData(String username, ScoreboardEntry scoreboardEntry) {
         DataPacket oldData = allUserData.get(username);
         allUserData.replace(username, oldData, oldData.addScore(scoreboardEntry));
 
@@ -164,27 +165,27 @@ public class GameCentre {
      *
      * @param bitmap curr bitmap
      */
-    void setCustomImageBitmap(Bitmap bitmap) {
+    public void setCustomImageBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
     }
 
     /**
-     * @return the arrays list of bitmaps to be used to texture the tiles
+     * @return return the array list of the appropriate bitmaps
      */
     public ArrayList<BitmapDrawable> getIdToBitmapArray() {
         return idToBitmap;
     }
 
     /**
-     * @param idToBitmap sets the array list of bitmaps
+     * @param idToBitmap the corresponding bitmap id
      */
     public void setIdToBitmapArray(ArrayList<BitmapDrawable> idToBitmap) {
         this.idToBitmap = idToBitmap;
     }
 
     /**
-     * @param id the id of the desired tile
-     * @return returns the appropriate bitmap texture for the given id
+     * @param id the id of the tile
+     * @return the bitmap that corresponds to the provided id
      */
     public BitmapDrawable getBitmapFromId(int id) {
         return idToBitmap.get(id);

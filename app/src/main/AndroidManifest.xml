@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fall2018.csc2017.slidingtiles">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".screens.RegistrationHubScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".screens.GameSelectionScreen" />
+        <activity android:name=".StartingActivity" />
+        <activity android:name=".SlidingTilesGameScreen" />
+        <activity android:name=".screens.LoginScreen" />
+        <activity android:name=".screens.SignUpScreen" />
+        <activity android:name=".screens.ScoreBoardScreen" />
+        <activity android:name=".screens.Hub" />
+        <activity android:name=".screens.SlidingTilesGameOver" />
+        <activity android:name=".screens.ImageUpload"></activity>
+        <activity android:name=".twentyfourtyeight.screens.TwentyFourtyEightGameScreen"/>
+        <activity android:name=".twentyfourtyeight.screens.TwentyFourtyEightTitleScreen"/>
+        <activity android:name=".twentyfourtyeight.screens.TwentyFourtyEightGameOver"/>
+        <activity android:name=".memorytiles.screens.MemoryTilesTitleScreen"/>
+        <activity android:name=".memorytiles.screens.MemoryTilesGameScreen"/>
+        <activity android:name=".memorytiles.screens.MemoryTilesGameOver"/>
+    </application>
+
+</manifest>

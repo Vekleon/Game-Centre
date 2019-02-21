@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class SlidingBoard extends Board{
 
-    final int blankId;
+    private final int blankId;
 
     /**
      * A new board of tiles in row-major order.
@@ -41,7 +41,6 @@ public class SlidingBoard extends Board{
 
     /**
      * Return true iff the current board is solavable
-     * @Todo move into sliding tiles gamestate
      **/
     boolean isSolvable() {
         if (this.complexity % 2 == 1) {

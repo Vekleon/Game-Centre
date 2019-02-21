@@ -2,21 +2,10 @@ package fall2018.csc2017.slidingtiles.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.widget.EditText;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseUser;
-
 
 import java.util.HashMap;
 
-import fall2018.csc2017.slidingtiles.DataPacket;
+import fall2018.csc2017.slidingtiles.filewriters.FileLogin;
 import fall2018.csc2017.slidingtiles.filewriters.FileWriter;
 import fall2018.csc2017.slidingtiles.GameCentre;
 import fall2018.csc2017.slidingtiles.R;
@@ -31,13 +20,7 @@ import fall2018.csc2017.slidingtiles.UserCredentialValidator;
  * @author Muneeb
  * @since 2018-10-28
  */
-public class LoginScreen extends Screen {
-
-    private FirebaseAuth fbAuth;
-
-    private EditText etUsername;
-    private EditText etPassword;
-
+public class LoginScreen extends UserDataScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +30,7 @@ public class LoginScreen extends Screen {
         etPassword = findViewById(R.id.Password);
         etUsername = findViewById(R.id.User_Name);
         etUsername.requestFocus();
-
-        fbAuth = FirebaseAuth.getInstance();
+        users = FileLogin.getUserLogin(this);
 
         HashMap<Integer, Runnable> runnableMap = new HashMap<>();
         runnableMap.put(R.id.Enter, this::loginUser);
@@ -79,27 +61,14 @@ public class LoginScreen extends Screen {
         String password = etPassword.getText().toString().trim();
 
         UserCredentialValidator validator = new UserCredentialValidator(username, password);
-
         // Determine whether the username and password are both valid
         if (validator.isValidUsername() && validator.isValidPassword()) {
-            // Entries for username and password are valid. Sign up the user.
-            fbAuth.signInWithEmailAndPassword(username + "@gamecentre.com", password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser currUser = fbAuth.getCurrentUser();
-                                if (currUser != null) {
-                                    buildUserProfile(currUser);
-                                    gotoHubScreen();
-                                }
-
-                            } else {
-                                handleLoginFailure(task.getException());
-                            }
-                        }
-                    });
-
+            if (userExists(username) && correctPassword(username, password)) {
+                setUserAndGlobalData(username);
+                gotoHubScreen();
+            } else{
+                makeToastText("Username or password is incorrect!");
+            }
         } else {
             // Login credentials are not valid.
             // Set EditText errors for username and password accordingly
@@ -107,50 +76,26 @@ public class LoginScreen extends Screen {
         }
     }
 
-    /***
-     * Initializes the current user logged in and builds their profile
-     * @param user The user for whom the profile is built
+    /**
+     * checks if the provided information exists in the user details
+     * @param name the user_name of the user
+     * @param pass the provided password of the user
+     * @return whether the details match that in the user details.
      */
-    private void buildUserProfile(FirebaseUser user) {
-        if (user.getEmail() != null) {
-            String loggedInUsername = user.getEmail();
-            GameCentre.getGameCentre()
-                    .setCurrUser(loggedInUsername.substring(0,
-                            loggedInUsername.indexOf("@")));
-        }
-
-        setUserData();
-    }
-
-
-    private void setUserData() {
-        HashMap<String, DataPacket> userData = FileWriter.getGlobalUserInfo(this);
-        GameCentre.setAllUserData(userData);
-    }
-
-    /***
-     * Notifies user with an error specific message regarding an error in the login process.
-     * @param e Exception of error to handle
-     */
-    private void handleLoginFailure(Exception e) {
-
-        if (e instanceof FirebaseAuthInvalidCredentialsException) {
-            etUsername.setError("Account exists. Password incorrect.");
-            etUsername.requestFocus();
-        } else if (e instanceof FirebaseAuthInvalidUserException) {
-
-            // Handling FirebaseAuth exceptions referenced from
-            // https://www.techotopia.com/index.php/Handling_Firebase_Authentication_Errors_and_Failures
-            String errorCode = ((FirebaseAuthInvalidUserException) e).getErrorCode();
-
-            if (errorCode.equals("ERROR_USER_NOT_FOUND")) {
-                etUsername.setError("An account with this username does not exist!");
-                etUsername.requestFocus();
+    private boolean correctPassword(String name, String pass){
+        String[] credentials;
+        for(String user: users){
+            credentials = user.split(" : ");
+            if(credentials[0].equals(name) && credentials[1].equals(pass)){
+                return true;
             }
-
-        } else
-            makeToastText("An error occured. Login unsuccessful. ");
+        }
+        return false;
     }
 
+    private void setUserAndGlobalData(String user){
+        GameCentre.getGameCentre().setCurrUser(user);
+        GameCentre.setAllUserData(FileWriter.getGlobalUserInfo(this));
+    }
 
 }

@@ -5,15 +5,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 import fall2018.csc2017.slidingtiles.Board;
+import fall2018.csc2017.slidingtiles.ProxyBitmap;
 import fall2018.csc2017.slidingtiles.Tile;
 import fall2018.csc2017.slidingtiles.boardgameinterfaces.TileCheckAndChange;
+import fall2018.csc2017.slidingtiles.boardgameinterfaces.TileMovement;
 
 /**
  * The board representation for the game 2048
  * @author Thomas Leung
  * @since 2018-11-28
  */
-public class TwentyFourtyEightBoard extends Board implements TileCheckAndChange {
+public class TwentyFourtyEightBoard extends Board implements TileMovement, TileCheckAndChange {
 
     /**
      * Initializer for the 2048 game board
@@ -48,6 +50,10 @@ public class TwentyFourtyEightBoard extends Board implements TileCheckAndChange 
      */
     public void changeTileBackground(int row, int col, int background){
         tiles[row][col].setBackgroundId(background);
+    }
+
+    public void swapTiles(int row1, int col1, int row2, int col2){
+        return;
     }
 
     /** 
@@ -155,27 +161,5 @@ public class TwentyFourtyEightBoard extends Board implements TileCheckAndChange 
         }
         b.append("]");
         return b.toString();
-    }
-
-    /**
-     * Returns a deep clone of the current board
-     * @return a deep clone of the current board
-     */
-    public TwentyFourtyEightBoard clone(){
-        return new TwentyFourtyEightBoard(deepCloneTiles(), this.complexity);
-    }
-
-    /**
-     * Returns a list of the tiles in the current board state
-     * @return a list of the tiles of the current board state
-     */
-    private List<Tile> deepCloneTiles(){
-        List<Tile> deepTiles = new ArrayList<>();
-        for(int row = 0; row < complexity; row++){
-            for(int col = 0; col < complexity; col++){
-                deepTiles.add(tiles[row][col]);
-            }
-        }
-        return deepTiles;
     }
 }

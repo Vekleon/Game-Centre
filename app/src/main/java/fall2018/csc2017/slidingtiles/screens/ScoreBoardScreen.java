@@ -71,9 +71,9 @@ public class ScoreBoardScreen extends AppCompatActivity {
         gameTabScope.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
             @Override
             public void onTabSelected(TabLayout.Tab tab){
-                if(tab.getText() != null) {
-                    updateForNewGame(tab.getText().toString());
-                }
+                /*populateEntries(scoreboard.getScores(tab.getText().toString(),
+                        tabLayout.getTabAt(tabLayout.getSelectedTabPosition()).getText().toString()));*/
+                updateForNewGame(tab.getText().toString());
             }
 
             @Override
@@ -107,8 +107,7 @@ public class ScoreBoardScreen extends AppCompatActivity {
         tabScope.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getText() != null)
-                    updateForNewScope(tab.getText().toString());
+                updateForNewScope(tab.getText().toString());
             }
 
             @Override
@@ -136,7 +135,7 @@ public class ScoreBoardScreen extends AppCompatActivity {
      * @param scope Either "Personal" or "Global", depending on the selected tab
      */
     private void updateForNewScope(String scope){
-        if(scope.equals("Personal"))
+        if(scope == "Personal")
             this.scoreboard = new Scoreboard(getPersonalScores());
         else
             this.scoreboard = new Scoreboard(Scoreboard.getGlobalScores());

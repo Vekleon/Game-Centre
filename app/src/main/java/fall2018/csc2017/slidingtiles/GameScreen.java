@@ -2,12 +2,19 @@ package fall2018.csc2017.slidingtiles;
 
 import android.content.Context;
 import android.content.Intent;
-
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
+
+import com.google.android.gms.common.data.DataBufferObserver;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -18,6 +25,9 @@ import java.util.TimerTask;
 import fall2018.csc2017.slidingtiles.controller.CustomGridView;
 import fall2018.csc2017.slidingtiles.filewriters.FileWriter;
 import fall2018.csc2017.slidingtiles.screens.Screen;
+import fall2018.csc2017.slidingtiles.screens.SlidingTilesGameOver;
+import fall2018.csc2017.slidingtiles.twentyfourtyeight.TwentyFourtyEightManager;
+import fall2018.csc2017.slidingtiles.twentyfourtyeight.screens.TwentyFourtyEightGameOver;
 
 public abstract class GameScreen extends Screen implements Observer {
 
@@ -121,7 +131,6 @@ public abstract class GameScreen extends Screen implements Observer {
         GameCentre gameCentre = GameCentre.getGameCentre();
         boardManager.getGameState().changeState(boardManager.getGameState().getBoard(), seconds);
 
-        if(gameName.equals("2048"))
         gameCentre.addSavedGameToData(gameCentre.getCurrUser(), gameName, boardManager.getGameState());
         FileWriter.writeIntoGlobalInfo(this);
     }

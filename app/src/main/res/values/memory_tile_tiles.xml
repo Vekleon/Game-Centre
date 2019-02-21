@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="memory_tile_tiles">
+        <item>@drawable/memory_tile_1</item>
+        <item>@drawable/memory_tile_2</item>
+        <item>@drawable/memory_tile_3</item>
+        <item>@drawable/memory_tile_4</item>
+        <item>@drawable/memory_tile_5</item>
+        <item>@drawable/memory_tile_6</item>
+        <item>@drawable/memory_tile_7</item>
+        <item>@drawable/memory_tile_8</item>
+        <item>@drawable/memory_tile_9</item>
+        <item>@drawable/memory_tile_10</item>
+    </array>
+</resources>

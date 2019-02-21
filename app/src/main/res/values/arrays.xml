@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="numbered_tiles">
+        <item>@drawable/tile_1</item>
+        <item>@drawable/tile_2</item>
+        <item>@drawable/tile_3</item>
+        <item>@drawable/tile_4</item>
+        <item>@drawable/tile_5</item>
+        <item>@drawable/tile_6</item>
+        <item>@drawable/tile_7</item>
+        <item>@drawable/tile_8</item>
+        <item>@drawable/tile_9</item>
+        <item>@drawable/tile_10</item>
+        <item>@drawable/tile_11</item>
+        <item>@drawable/tile_12</item>
+        <item>@drawable/tile_13</item>
+        <item>@drawable/tile_14</item>
+        <item>@drawable/tile_15</item>
+        <item>@drawable/tile_16</item>
+        <item>@drawable/tile_17</item>
+        <item>@drawable/tile_18</item>
+        <item>@drawable/tile_19</item>
+        <item>@drawable/tile_20</item>
+        <item>@drawable/tile_21</item>
+        <item>@drawable/tile_22</item>
+        <item>@drawable/tile_23</item>
+        <item>@drawable/tile_24</item>
+        <item>@drawable/tile_blank</item>
+    </integer-array>
+</resources>

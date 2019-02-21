@@ -21,14 +21,14 @@ public class MemoryTileBoard extends Board {
      * @param tiles list of every tile on the board
      * @param complexity board complexity
      */
-    MemoryTileBoard(List<Tile> tiles, int complexity){
+    public MemoryTileBoard(List<Tile> tiles, int complexity){
         super(tiles, complexity);
     }
 
     /**
      * Keep track of how many tiles are flipped
      */
-    void updateNumFlipped(){
+    public void updateNumFlipped(){
         int countFlipped = 0;
         for(int r = 0; r < complexity; r++)
             for(int c = 0; c < complexity; c++)
@@ -41,5 +41,5 @@ public class MemoryTileBoard extends Board {
      * Getter for the number of flipped tiles
      * @return the number of flipped tiles
      */
-    int getNumFlipped(){return this.numFlipped;}
+    public int getNumFlipped(){return this.numFlipped;}
 }

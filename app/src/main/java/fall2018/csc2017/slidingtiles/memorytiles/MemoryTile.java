@@ -1,5 +1,6 @@
 package fall2018.csc2017.slidingtiles.memorytiles;
 
+import fall2018.csc2017.slidingtiles.R;
 import fall2018.csc2017.slidingtiles.Tile;
 
 /**
