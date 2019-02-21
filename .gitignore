@@ -1,0 +1,8 @@
+GameCentre/*.bin
+GameCentre/*.lock
+GameCentre/*.ser
+GameCentre/*.xml
+GameCentre/*.properties
+GameCentre/.gradle
+GameCentre/.idea
+GameCentre/*.iml
