@@ -18,3 +18,8 @@ continue on all default settings.
 
 AVM:
 The software was optimized for the Pixel 2 with Oreo API 27.
+
+##Issues with setup:
+- "Installation failed ... Invalid file:..."
+  - Click build -> Clean Project, then:
+  - Click build -> Rebuild Project
